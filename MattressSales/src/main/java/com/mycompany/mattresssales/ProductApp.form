@@ -24,18 +24,51 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Component id="JLabelName" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace pref="246" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="JTextFieldAnswer" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="JLabelPrice" max="32767" attributes="0"/>
+                          <Component id="JLabelProduct" max="32767" attributes="0"/>
+                          <Component id="JLabelName" min="-2" pref="115" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="JButtonProcess" max="32767" attributes="0"/>
+                          <Component id="JTextFieldName" max="32767" attributes="0"/>
+                          <Component id="JComboBoxProduct" max="32767" attributes="0"/>
+                          <Component id="JTextFieldPrice" min="-2" pref="204" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="36" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-              <Component id="JLabelName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="228" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLabelName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTextFieldName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="JLabelProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JComboBoxProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="JLabelPrice" min="-2" max="-2" attributes="0"/>
+                  <Component id="JTextFieldPrice" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="JButtonProcess" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Component id="JTextFieldAnswer" min="-2" pref="112" max="-2" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -44,6 +77,55 @@
     <Component class="javax.swing.JLabel" name="JLabelName">
       <Properties>
         <Property name="text" type="java.lang.String" value="Customer Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="JTextFieldName">
+    </Component>
+    <Component class="javax.swing.JLabel" name="JLabelProduct">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Select Product:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="JComboBoxProduct">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+        <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection component="Form" type="bean"/>
+        </Property>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JComboBoxProductActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="JLabelPrice">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enter Price:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="JTextFieldPrice">
+    </Component>
+    <Component class="javax.swing.JButton" name="JButtonProcess">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Process"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonProcessActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="JTextFieldAnswer">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Message will appear after button is &quot;Pressed&quot;"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -4,10 +4,8 @@
  */
 package com.mycompany.mattresssales;
 
-/**
- *
- * @author emeris
- */
+import javax.swing.JComboBox;
+
 public class ProductApp extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProductApp.class.getName());
@@ -29,30 +27,114 @@ public class ProductApp extends javax.swing.JFrame {
     private void initComponents() {
 
         JLabelName = new javax.swing.JLabel();
+        JTextFieldName = new javax.swing.JTextField();
+        JLabelProduct = new javax.swing.JLabel();
+        JComboBoxProduct = new javax.swing.JComboBox<>();
+        JLabelPrice = new javax.swing.JLabel();
+        JTextFieldPrice = new javax.swing.JTextField();
+        JButtonProcess = new javax.swing.JButton();
+        JTextFieldAnswer = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         JLabelName.setText("Customer Name:");
+
+        JLabelProduct.setText("Select Product:");
+
+        JComboBoxProduct.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JComboBoxProduct.setSelectedItem(this);
+        JComboBoxProduct.setToolTipText("");
+        JComboBoxProduct.addActionListener(this::JComboBoxProductActionPerformed);
+
+        JLabelPrice.setText("Enter Price:");
+
+        JButtonProcess.setText("Process");
+        JButtonProcess.addActionListener(this::JButtonProcessActionPerformed);
+
+        JTextFieldAnswer.setText("Message will appear after button is \"Pressed\"");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addComponent(JLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(246, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JTextFieldAnswer)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JLabelPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JLabelProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JLabelName, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JButtonProcess, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JTextFieldName)
+                            .addComponent(JComboBoxProduct, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(JLabelName)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLabelName)
+                    .addComponent(JTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JLabelProduct)
+                    .addComponent(JComboBoxProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(JLabelPrice)
+                    .addComponent(JTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(JButtonProcess)
+                .addGap(27, 27, 27)
+                .addComponent(JTextFieldAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JComboBoxProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JComboBoxProductActionPerformed
+        // TODO add your handling code here:
+        JComboBox<String> comboBox = new JComboBox<>();
+        
+        this.JComboBoxProduct = comboBox;
+
+        comboBox.addItem("Cozy Nights Monarch");
+        comboBox.addItem("Restonic Barbados");
+        comboBox.addItem("Sealy Phuket");
+    }//GEN-LAST:event_JComboBoxProductActionPerformed
+
+    private void JButtonProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonProcessActionPerformed
+        // TODO add your handling code here:
+        // Data Type
+        String name, product;
+        double price, vat = 0.15, commission = 0.05;
+        double totalSaleAmount, vatAmount, commissionAmount;
+        // Input
+        JComboBox<String> comboBox = new JComboBox<>();
+        
+        this.JComboBoxProduct = comboBox;
+        
+        name = this.JTextFieldName.getText();
+        product = String.valueOf(comboBox.getSelectedItem());
+        // Convert
+        price = Double.parseDouble(this.JTextFieldPrice.getText()); // getText
+        
+        // Calculates
+        vatAmount = price * vat;
+        commissionAmount = price * commission;
+        totalSaleAmount = price + vatAmount + commissionAmount;
+        // Output
+        // Convert
+        this.JTextFieldAnswer.setText(String.format("Customer Name: %s\n Product: %s\n Vat: %.2f\n Commission: %.2f\n Total: R %.2f",
+                name, product, vatAmount, commissionAmount, totalSaleAmount)); // setText
+    }//GEN-LAST:event_JButtonProcessActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,8 +160,17 @@ public class ProductApp extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ProductApp().setVisible(true));
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtonProcess;
+    private javax.swing.JComboBox<String> JComboBoxProduct;
     private javax.swing.JLabel JLabelName;
+    private javax.swing.JLabel JLabelPrice;
+    private javax.swing.JLabel JLabelProduct;
+    private javax.swing.JTextField JTextFieldAnswer;
+    private javax.swing.JTextField JTextFieldName;
+    private javax.swing.JTextField JTextFieldPrice;
     // End of variables declaration//GEN-END:variables
 }
